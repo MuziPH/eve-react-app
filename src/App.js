@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const cities = ["Jozi", "Durban", "Cape Town"];
+console.log(cities[0]);
+
+// Destructuring array above and using position to refer to array elements
+const [first, second] = ["Jozi", "Durban", "Cape Town"];
+console.log(second);
+console.log(first);
+function App({ library }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello from {library}</h1>
     </div>
   );
 }
