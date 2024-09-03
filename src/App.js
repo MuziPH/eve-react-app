@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  // useState takes two parameters, a value for initial state and a function to update the state
-  // We used destructuring to capture the initial value emotion and the function to update emotion state, setEmotion
-  const [emotion, setEmotion] = useState("what");
+  const [emotion, setEmotion] = useState("happy");
+// useEffect takes two arguments, the function that will be called when we want the effect to happen
+// second argument is the field to listen for any changes that will trigger the effect like changes in emotion below
+  useEffect(() => {
+    console.log(`It's ${emotion} right now`);
+  },[emotion]);
   return (
     <div className="App">
       <h1>Current emotion is {emotion}</h1>
