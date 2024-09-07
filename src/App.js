@@ -1,18 +1,26 @@
-import { useReducer } from 'react';
+import { useRef } from 'react';
 import './App.css';
 
 function App() {
-  // useReducer takes a function to update and second argument i sthe value to update
-  const [checked, setChecked] = useReducer(checked => !checked, false);
+  // useRef retrieves values from the the form, like which color is selected
+  // retrives the value of text in the input
+  const txtTitle = useRef();
+  const hexColor = useRef();
+
+  const submit = (e) => {
+    e.preventDefault();
+    const title = txtTitle.current.value;
+    const color = hexColor.current.value;
+    alert(`${title}, ${color}`)
+    txtTitle.current.value="";
+    hexColor.current.value="";
+  };
   return (
-    <div className="App">
-      <input
-        type='checkbox'
-        value={checked}
-        onChange={setChecked}
-      />
-      <label>{checked ? "Checked" : "Not Checked"}</label>
-    </div>
+    <form onSubmit={submit}>
+      <input ref={txtTitle} type='text' placeholder='color title...' />
+      <input ref={hexColor} type='color' />
+      <button>ADD</button>
+    </form>
   );
 }
 
